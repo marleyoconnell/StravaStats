@@ -43,3 +43,10 @@ fprintf('Average speed: %.2f km/h\n', avg_speed_kph);
 fprintf('Average pace: %.2f min/km\n', avg_pace_mpk);
 fprintf('Average HR: %.0f bpm\n', avg_hr);
 fprintf('Total elevation gain: %.0f m\n', elevation_gain);
+
+
+%% Plot Route
+
+figure;
+geoplot(lat, long, 'r')
+title("Route Map")
