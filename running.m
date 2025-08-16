@@ -67,3 +67,23 @@ plot(time, smoothed_pace, 'b', LineWidth=1.5);
 xlabel("Time of Day")
 ylabel("Pace (min/km)")
 title("Pace vs Time for Activity")
+
+
+%%
+
+% Lot of NaNs in HR so have to filter out just the numbers (or else it just
+% plots as dots)
+
+valid_idx = ~isnan(hr);
+time_valid = time(valid_idx);
+hr_valid = hr(valid_idx);
+
+filtered_hr = movmedian(hr_valid, 10); % filter out some of the noise
+
+figure;
+plot(time_valid, filtered_hr, '-r', LineWidth=1.2);
+ylabel('Heart Rate (bpm)');
+xlabel('Time');
+title('Heart Rate Profile');
+grid on;
+
