@@ -58,12 +58,6 @@ title("Route Map")
 
 %% Plot Pace vs Time
 
-% Using median instead of mean for large increases (i.e. bathroom stops) to
-% not skew the pace.
-smoothed_pace = movmedian(pace_mpk, 1000, 'omitnan'); 
-
 figure;
-plot(time, smoothed_pace, 'b', LineWidth=1.5);
-xlabel("Time of Day")
+plot(time, pace_mpk)
 ylabel("Pace (min/km)")
-title("Pace vs Time for Activity")
